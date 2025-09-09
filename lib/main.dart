@@ -4,9 +4,16 @@ void main() {
   runApp(const PointsCounter());
 }
 
-class PointsCounter extends StatelessWidget {
+class PointsCounter extends StatefulWidget {
   const PointsCounter({super.key});
 
+  @override
+  State<PointsCounter> createState() => _PointsCounterState();
+}
+
+class _PointsCounterState extends State<PointsCounter> {
+  int teamAPoints = 0;
+  int teamBPoints = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,11 +45,15 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '0',
+                        '$teamAPoints',
                         style: TextStyle(fontSize: 150, color: Colors.orange),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints++;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -53,7 +64,11 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints += 2;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -64,7 +79,11 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints += 3;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -99,11 +118,15 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '0',
+                        '$teamBPoints',
                         style: TextStyle(fontSize: 150, color: Colors.orange),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamBPoints++;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -114,7 +137,11 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamBPoints += 2;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -125,7 +152,11 @@ class PointsCounter extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            teamBPoints += 3;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
@@ -145,7 +176,12 @@ class PointsCounter extends StatelessWidget {
                 backgroundColor: Colors.orange,
                 minimumSize: Size(150, 50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  teamAPoints = 0;
+                  teamBPoints = 0;
+                });
+              },
               child: Text(
                 'Reset',
                 style: TextStyle(
